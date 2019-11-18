@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning Vue Like a Boss!</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+  <style>
+    .message {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .message-header {
+      cursor: pointer;
+    }
+    .message-body   {
+      padding: 0;
+      max-height: 10em;
+      overflow: hidden;
+      transition: 0.3s ease all;
+    }
+    .is-closed .message-body {
+      max-height: 0;
+    }
+    .message-content {
+      padding: 20px;
+    }
+  </style>
+
+  <!-- js -->
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <!-- our template -->
+  <section id="app" class="section container">
+    
+    <article class="message" :class="accordionClasses">
+      <div class="message-header" @click="toggleAccordion">
+        Hello World        
+      </div>
+      <div class="message-body">
+        <div class="message-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- our javascript -->
+  <script>
+    // document.querySelector('.message-header')
+    //   .addEventListener('click', toggleAccordion);
+
+    // function toggleAccordion() {
+    //   document.querySelector('.message').classList.add('is-closed')
+    //   if (isOpen)
+    //     document.querySelector('.message').style.maxHeight = '0'
+    //   else
+    //     document.querySelector('.message').style.maxHeight = '10em'
+    // }
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isOpen: true
+      },
+      methods: {
+        toggleAccordion: function() {
+          this.isOpen = !this.isOpen;
+        }
+      },
+      computed: {
+        accordionClasses: function() {
+          return {
+            'is-closed': !this.isOpen,
+            'is-primary': this.isOpen,
+            'is-dark': !this.isOpen
+          };
+        }
+      }
+    });
+  </script>
+</body>
+</html>

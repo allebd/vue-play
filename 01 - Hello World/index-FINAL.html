@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+
+  <!-- js -->
+  <script src="https://unpkg.com/jquery"></script>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <!-- plain javascript -->
+  <!-- <section class="section container">
+    <h1 class="title">My Text Goes Here!</h1>
+
+    <input type="text" class="input">
+  </section> -->
+
+  <!-- vue -->
+  <section id="app" class="section container">
+    <h1 class="title">
+      Hi my name is {{ name }} and my message is: {{ message }}      
+    </h1>
+
+    <input type="text" class="input" v-model="name">
+    <input type="text" class="input" v-model="message">
+  </section>
+
+  <!-- our javascript -->
+  <script>
+    // plain javascript ===============================
+    // const heading = document.querySelector('h1');
+    // const input   = document.querySelector('input');
+
+    // // listen to the input box for typing
+    // input.addEventListener('keyup', (e) => {
+    //   const text       = e.target.value;
+    //   heading.innerText = text;
+    // });
+
+    // jquery =========================================
+    // $('input').on('keyup', (e) => $('h1').text(e.target.value));
+
+    // with vue =======================================
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name: 'Chris',
+        message: 'hello world'
+      }
+    });
+  </script>
+</body>
+</html>
